@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body{
+            text-align: center;
+            background: rgb(63,94,251);
+            background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,229,70,1) 100%);
+            margin-top: 180px;
+        }
+        .btn{
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 35px;
+            
+            text-align: center;
+            background: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        const buttons = [
+            {id: "0", text: '' },
+            {id: "1", text: '' },
+            {id: "2", text: '' },
+            {id: "3", text: '' },
+            {id: "4", text: '' },
+            {id: "5", text: '' },
+            {id: "6", text: '' },
+            {id: "7", text: '' },
+            {id: "8", text: '' }
+        ];
+
+        const element = document.getElementById('result');
+        let button_txt = "x";
+
+        buttons.forEach(function(button){
+            const btn = document.createElement('button');
+            btn.id = button.id;
+            btn.className = "btn";
+            btn.addEventListener("click", function(){
+                btn.textContent = button_txt;
+                button_txt = button_txt == 'x' ? 'o' : 'x';
+                checkForWin();
+            });
+            document.body.appendChild(btn);
+            const br = document.createElement("br");
+            if (btn.id == 2 || btn.id == 5 || btn.id == 8) {
+                document.body.appendChild(br);
+            }
+        });
+
+        function checkForWin() {
+            const btns = document.querySelectorAll('.btn');
+            const symbols = [];
+            btns.forEach(function(btn){
+                symbols.push(btn.textContent);
+            });
+            const winningPositions = [
+                // Horizontal positions
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                // Vertical positions
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                // Diagonal positions
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+            for (let i = 0; i < winningPositions.length; i++) {
+                const position = winningPositions[i];
+                const symbol1 = symbols[position[0]];
+                const symbol2 = symbols[position[1]];
+                const symbol3 = symbols[position[2]];
+                if (symbol1 == 'x' && symbol2 == 'x' && symbol3 == 'x') {
+                    element.textContent = 'X wins!';
+                    break;
+                }
+                if (symbol1 == 'o' && symbol2 == 'o' && symbol3 == 'o') {
+                    element.textContent = 'O wins!';
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

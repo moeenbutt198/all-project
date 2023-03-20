@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="para"></p>
+  </body>
+  <script>
+    const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+    let text;
+    for (let i = 0; i < cars.length; i++) {
+      document.getElementById("para").innerHTML += i + " " + cars[i] + "<br>";
+    }
+
+    for (var a = 0; a < cars.length; a++) {
+      document.getElementById("para").innerHTML += a + cars[a] + "<br>";
+    }
+    for (var f = 0; f < cars.length; f++) {
+      document.getElementById("para").innerHTML += f + cars[f] + "<br>";
+    }
+
+    const fruits = [
+      "Banana",
+      "Orange",
+      "Mango",
+      "Apple",
+      "Cherry",
+      "Pineapple",
+      "Papaya",
+    ];
+
+    for (var d = 0; d < fruits.length; d++) {
+      document.getElementById("para").innerHTML += d + fruits[d] + "<br>";
+    }
+    // Number Loop 123
+    for (var c = 1; c <= 10; c++) {
+      document.write(c + " moeen <br>");
+    }
+    // Even Number Loop 2 4 6
+    for (let e = 1; e <= 10; e++) {
+      if (e % 2 == 0) {
+        document.write(e + "Even Number <br>");
+      }
+    }
+    // Odd Number Loop 1 3 5
+    for (let f = 1; f <= 10; f++) {
+      if (f % 2 != 0) {
+        document.write(f + "Odd Number <br>");
+      }
+    }
+  </script>
+</html>

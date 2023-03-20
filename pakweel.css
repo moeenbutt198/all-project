@@ -1,0 +1,20 @@
+body {
+    background-color: #f2f3f3;
+}
+.filter-header-bg {
+    background-color: #518ecb;
+}
+.modal-heading-color {
+    color: #233d7b;
+}
+.modal-style{
+    height: 400px;
+    overflow-y: scroll;
+}
+.accordion-height {
+    height: 200px;
+    overflow-y: scroll;
+}
+.select2-style {
+    width: 300px;
+}

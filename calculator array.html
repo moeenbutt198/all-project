@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Calculator</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <button type="button" onclick="arry()">CALCULATOR</button>
+    <div id="demo"></div>
+
+    <script>
+//       const button1 = document.createElement("button");
+//       const button2 = document.createElement("button");
+//       const button3 = document.createElement("button");
+//       const button4 = document.createElement("button");
+//       const button5 = document.createElement("button");
+//       const button6 = document.createElement("button");
+//       const button7 = document.createElement("button");
+//       const button8 = document.createElement("button");
+//       const button9 = document.createElement("button");
+//       const button0 = document.createElement("button");
+      
+//       button1.textContent = "1";
+//       button2.textContent = "2";
+//       button3.textContent = "3";
+//       button4.textContent = "4";
+//       button5.textContent = "5";
+//       button6.textContent = "6";
+//       button7.textContent = "7";
+//       button8.textContent = "8";
+//       button9.textContent = "9";
+//       button0.textContent = "0";
+//       button1.addEventListener("click", function () {
+//         alert("Button was clicked");
+//       });
+//       document.body.appendChild(button1);
+//       document.body.appendChild(button2);
+//       document.body.appendChild(button3);
+//       document.body.appendChild(button4);
+//       document.body.appendChild(button5);
+//       document.body.appendChild(button6);
+//       document.body.appendChild(button7);
+//       document.body.appendChild(button8);
+//       document.body.appendChild(button9);
+//       document.body.appendChild(button0);
+
+
+
+
+
+//       const buttons = [
+//   { text: 'Button 1', id: 'button1' },
+//   { text: 'Button 2', id: 'button2' },
+//   { text: 'Button 3', id: 'button3' }
+// ];
+
+// buttons.forEach(function(button) {
+//   const btn = document.createElement('button');
+//   btn.textContent = button.text;
+//   btn.id = button.id;
+//   btn.addEventListener('click', function() {
+//     alert(`${button.text} was clicked`);
+//   });
+//   document.body.appendChild(btn);
+// });
+
+
+
+
+// const elements = [
+//   { type: 'button', text: 'Button 1', id: 'button1' },
+//   { type: 'input', placeholder: 'Input field 1', id: 'input1' },
+//   { type: 'button', text: 'Button 2', id: 'button2' }
+// ];
+
+// elements.forEach(function(element) {
+//   if (element.type === 'button') {
+//     const btn = document.createElement('button');
+//     btn.textContent = element.text;
+//     btn.id = element.id;
+//     btn.addEventListener('click', function() {
+//       alert(`${element.text} was clicked`);
+//     });
+//     document.body.appendChild(btn);
+//   } else if (element.type === 'input') {
+//     const input = document.createElement('input');
+//     input.placeholder = element.placeholder;
+//     input.id = element.id;
+//     document.body.appendChild(input);
+//   }
+// });
+
+
+
+
+
+const elements = [
+  { type: 'input', id: 'display' },
+  { type: 'button', text: '1', id: 'btn1' },
+  { type: 'button', text: '2', id: 'btn2' },
+  { type: 'button', text: '3', id: 'btn3' },
+  { type: 'button', text: '+', id: 'btnPlus' },
+  { type: 'button', text: '4', id: 'btn4' },
+  { type: 'button', text: '5', id: 'btn5' },
+  { type: 'button', text: '6', id: 'btn6' },
+  { type: 'button', text: '-', id: 'btnMinus' },
+  { type: 'button', text: '7', id: 'btn7' },
+  { type: 'button', text: '8', id: 'btn8' },
+  { type: 'button', text: '9', id: 'btn9' },
+  { type: 'button', text: '*', id: 'btnMultiply' },
+  { type: 'button', text: 'C', id: 'btnClear' },
+  { type: 'button', text: '0', id: 'btn0' },
+  { type: 'button', text: '=', id: 'btnEquals' },
+  { type: 'button', text: '/', id: 'btnDivide' }
+];
+
+let displayValue = '';
+let operand1 = '';
+let operand2 = '';
+let operator = '';
+
+elements.forEach(function(element) {
+  if (element.type === 'input') {
+    const input = document.createElement('input');
+    input.type = element.type;
+    input.id = element.id;
+    input.value = displayValue;
+    document.body.appendChild(input);
+  } else if (element.type === 'button') {
+    const btn = document.createElement('button');
+    btn.textContent = element.text;
+    btn.id = element.id;
+    btn.addEventListener('click', function() {
+      const display = document.querySelector('#display');
+      if (element.text === 'C') {
+        displayValue = '';
+        operand1 = '';
+        operand2 = '';
+        operator = '';
+      } else if (element.text === '+' ||
+                 element.text === '-' ||
+                 element.text === '*' ||
+                 element.text === '/') {
+        operand1 = displayValue;
+        operator = element.text;
+        displayValue = '';
+      } else if (element.text === '=') {
+        operand2 = displayValue;
+        switch (operator) {
+          case '+':
+            displayValue = parseFloat(operand1) + parseFloat(operand2);
+            break;
+          case '-':
+            displayValue = parseFloat(operand1) - parseFloat(operand2);
+            break;
+          case '*':
+            displayValue = parseFloat(operand1) * parseFloat
+        }
+        }
+    
+  
+                
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Celcius : <input type="text" id="tocel" /><br>
+    Fahrenhiet : <input type="text" id="fer" /><br>
+    Kelvin : <input type="text" id="kel" /><br>
+    <br />
+    <br />
+    <button onclick="tocel()">C</button>
+    <button onclick="fer()">F</button>
+    <button onclick="kel()">K</button>
+    <button onclick="reset()">reset</button>
+    <h3 id="result"></h3>
+  </body>
+  <script>
+    function reset(){
+        document.getElementById("result").innerHTML = "";
+    }
+    function tocel() {
+      var a = document.getElementById("tocel").value;
+      var b = document.getElementById("fer").value;
+      var c = document.getElementById("kel").value;
+      var cel = a;
+      var fah = ((b - 32) * 5) / 9;
+      var kel = c - 273.15;
+      document.getElementById("result").innerHTML =
+        "The Celcius to Celcius = " +
+        cel +
+        "<br>" +
+        "The Fahrenhiet to Celcius = " +
+        fah +
+        "<br>" +
+        "The kelvin to Celcius = " +
+        kel;
+    }
+    function fer() {
+      var a = document.getElementById("tocel").value;
+      var b = document.getElementById("fer").value;
+      var c = document.getElementById("kel").value;
+      var cel = (a * 9) / 5 + 32;
+      var fah = b;
+      var kel = c - 273.15;
+      document.getElementById("result").innerHTML =
+        "The Celcius to fahrenhiet = " +
+        cel +
+        "<br>" +
+        "The Fahrenhiet to Fahrenhiet = " +
+        fah +
+        "<br>" +
+        "The kelvin to Fahrenhiet = " +
+        kel;
+    }
+    function kel() {
+      var a = document.getElementById("tocel").value;
+      var b = document.getElementById("fer").value;
+      var c = document.getElementById("kel").value;
+      var cel = (a * 9) / 5 + 32;
+      var fah = ((b - 32) * 5) / 9;
+      var kel = c;
+      document.getElementById("result").innerHTML =
+        "The Celcius to Kelvin = " +
+        cel +
+        "<br>" +
+        "The Fahrenhiet to Kelvin = " +
+        fah +
+        "<br>" +
+        "The kelvin to Kelvin = " +
+        kel;
+    }
+  </script>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+    <title>Search Vehicles</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="fs-2 text-center py-3">Search</div>
+      <!-- Button trigger modal -->
+      <a class="btn btn-primary" href="form.html"> Post Ad </a>
+      <div class="row py-5">
+        <div class="col-md-3">
+          <div class="bg-white">
+            <div class="filter-header-bg p-2 ps-4 text-light fw-bold">
+              Show Result By:
+            </div>
+            <div class="accordion" id="filters">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseOne"
+                    aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseOne"
+                  >
+                    Search By Keyword
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="panelsStayOpen-headingOne"
+                >
+                  <div class="accordion-body">
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="e.g Honda City"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          GO
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFive"
+                    aria-controls="panelsStayOpen-collapseFive"
+                  >
+                    Price Range
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingFive"
+                >
+                  <div class="accordion-body">
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="From"
+                      />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="To"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          GO
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseSix"
+                    aria-controls="panelsStayOpen-collapseSix"
+                  >
+                    Year
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseSix"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingSix"
+                >
+                  <div class="accordion-body">
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="From"
+                      />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="To"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          GO
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseSeven"
+                    aria-controls="panelsStayOpen-collapseSeven"
+                  >
+                    Mileage (KM)
+                  </button>
+                </h2>
+                <div
+                  id="panelsStayOpen-collapseSeven"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingSeven"
+                >
+                  <div class="accordion-body">
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="From"
+                      />
+                      <input
+                        type="text"
+                        class="form-control shadow-none"
+                        placeholder="To"
+                      />
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          GO
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9" id="show_list_data">
+        </div>
+        <div class="col-12" id="c">
+
+        </div>
+      </div>
+    </div>
+    <script>
+      window.onload = () => {
+        createFiltersCheckboxes();
+        showListData(arr = []);
+      };
+      let showListData = (arr, filters) => {
+    document.getElementById('show_list_data').innerHTML = '';
+    let array = JSON.parse(localStorage.getItem('data'));
+    for(let [index,item] of arr && arr.length? arr.entries() : array.entries()){
+        var row = document.createElement('div');
+        var imgDiv = document.createElement('div');
+        var img = document.createElement('img');
+        var centerDiv = document.createElement('div');
+        var rightDiv = document.createElement('div');
+        var h5 = document.createElement('h5');
+        var city = document.createElement('p');
+        var priceDiv = document.createElement('div');
+        row.className = 'row mb-4 pt-2 border bg-white';
+        row.id = 'row-'+index;
+        document.getElementById('show_list_data').appendChild(row);
+        imgDiv.className = 'col-md-3';
+        imgDiv.id = 'img-div-'+index;
+        centerDiv.className = 'col-md-6';
+        rightDiv.className = 'col-md-3';
+        rightDiv.id = 'right-div-'+ index;
+        centerDiv.id = 'center-div-'+index;
+        document.getElementById('row-'+index).appendChild(imgDiv);
+        document.getElementById('row-'+index).appendChild(centerDiv);
+        document.getElementById('row-'+index).appendChild(rightDiv);
+        var price = document.createElement('div');
+        price.textContent = 'PKR ' + item.price;
+        price.className = 'h5';
+        document.getElementById('right-div-'+index).appendChild(price);
+        img.src = item.pictures[0];
+        img.alt = 'img';
+        img.style = 'width:100%';
+        document.getElementById('img-div-'+index).appendChild(img);
+        h5.textContent = item.car_name;
+        city.textContent = item.city.replace(/\b(\w)/g, s => s.toUpperCase());
+        document.getElementById('center-div-'+index).appendChild(h5);
+        document.getElementById('center-div-'+index).appendChild(city);
+        var ul = document.createElement('ul');
+        ul.id = 'ul-' + index;
+        ul.className = 'list-unstyled';
+        ul.style = 'display:inline-flex'
+        document.getElementById('center-div-'+index).appendChild(ul);
+        let ul_fragment = document.createDocumentFragment();
+        var year_li = document.createElement('li');
+        var mileage_li = document.createElement('li');
+        var engine_type_li = document.createElement('li');
+        var engine_capacity_li = document.createElement('li');
+        var transmission_li = document.createElement('li');
+        year_li.textContent = item.model_year;
+        year_li.className = 'pe-3 border-end';
+        mileage_li.textContent = item.mileage + ' Km';
+        mileage_li.className = 'px-3 border-end';
+        engine_type_li.textContent = item.engine_type.replace(/\b(\w)/g, s => s.toUpperCase());
+        engine_type_li.className = 'px-3 border-end';
+        engine_capacity_li.textContent = item.engine_capacity + 'cc';
+        engine_capacity_li.className = 'px-3';
+        transmission_li.textContent = item.transmission.replace(/\b(\w)/g, s => s.toUpperCase());
+        transmission_li.className = 'ps-3 border-start';
+        ul_fragment.appendChild(year_li);
+        ul_fragment.appendChild(mileage_li);
+        ul_fragment.appendChild(engine_type_li);
+        ul_fragment.appendChild(engine_capacity_li);
+        ul_fragment.appendChild(transmission_li);
+        document.getElementById('ul-'+index).appendChild(ul_fragment);
+        // var carousel = document.createElement('div');
+        // var carousel = document.createElement('div');
+        // carousel.id = 'carousel-'+index;
+        // carousel.className = 'carousel slide';
+        // carousel.setAttribute('data-bs-ride', 'carousel');
+        // document.getElementById('c').appendChild(carousel);
+        // var carousel_indicators = document.createElement('div');
+        // carousel_indicators.className = 'carousel-indicators';
+        // carousel_indicators.id = 'carousel-indicators-'+index;
+        // document.getElementById('carousel-'+index).appendChild(carousel_indicators);
+        // var carousel_inner = document.createElement('div');
+        // carousel_inner.className = 'carousel-inner';
+        // carousel_inner.id = 'carousel-inner-'+index;
+        // document.getElementById('carousel-'+index).appendChild(carousel_inner);
+        // createCarousel(item.pictures, 'carousel-inner-'+index, 'carousel-indicators-'+index, 'carousel-'+index);
+        // var myCarousel = document.querySelector('#carousel-'+index);
+        // var carousel = new bootstrap.Carousel(myCarousel)
+
+    }
+  }
+  // let createCarousel = (arr, inner_id, btn_id, c_id) => {
+  //   for(let i in arr){
+  //     var btn = document.createElement('button');
+  //     btn.type = 'button';
+  //     btn.setAttribute('data-bs-target', '#'+c_id);
+  //     btn.setAttribute('data-bs-slide-to', i);
+  //     i === 0 ? btn.className = 'active' : '';
+  //     btn.setAttribute('aria-label', 'Slide '+i);
+  //     document.getElementById(btn_id).appendChild(btn);
+  //     var div = document.createElement('div');
+  //     div.className = 'carousel-item';
+  //     div.id = 'carousel-item-'+i;
+  //     document.getElementById(inner_id).appendChild(div);
+  //     var img = document.createElement('img');
+  //     img.src = arr[i];
+  //     img.style = 'width:100%; height: 200px'
+  //     document.getElementById('carousel-item-'+i).appendChild(img);
+  //   }
+  // }
+    </script>
+  </body>
+</html>

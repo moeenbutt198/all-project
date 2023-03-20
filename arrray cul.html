@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .css {
+      background-color: green; 
+      width: 320px; 
+      height: 50px; 
+      text-align: right; 
+      font-size: 50px
+    }
+  </style>
+</head>
+
+<body>
+  
+</body>
+<script>
+  const buttons = [
+    { text: "1", id: "one", value: "1" },
+    { text: "2", id: "two", value: "2" },
+    { text: "3", id: "three", value: "3" },
+    { text: "4", id: "four", value: "4" },
+    { text: "5", id: "five", value: "5" },
+    { text: "6", id: "six", value: "6" },
+    { text: "7", id: "seven", value: "7" },
+    { text: "8", id: "eight", value: "8" },
+    { text: "9", id: "nine", value: "9" },
+    { text: "0", id: "zero", value: "0" },
+    { text: "-", id: "minus", value: "-" },
+    { text: "+", id: "plus", value: "+" },
+    { text: "/", id: "divide", value: "/" },
+    { text: "*", id: "multiply", value: "*" },
+    { text: "=", id: "equals", value: "=" },
+    { text: "C", id: "clear", value: "clear" },
+  ];
+  const inputField = document.createElement("input");
+  inputField.id = "inputField";
+  inputField.className = 'css';
+  document.body.appendChild(inputField);
+  let counter = 1;
+  document.body.appendChild(document.createElement('br'))
+
+  buttons.forEach(function (button) {
+    const btn = document.createElement("button");
+    btn.textContent = button.text;
+    btn.id = button.id;
+    btn.value = button.value;
+    btn.setAttribute("style", "margin: 15px; width: 50px; font-size: 50px")
+
+    btn.addEventListener("click", function () {
+      if (button.value === "clear") {
+        inputField.value = "";
+      } else if (button.value === "=") {
+        inputField.value = eval(inputField.value);
+      } else inputField.value += button.value;
+    });
+    document.body.appendChild(btn);
+    const br = document.createElement("br")
+    if (counter == 4) {
+      document.body.appendChild(br);
+      counter = 0;
+    } counter++
+  });
+
+    // const cal = [
+    //   { text: "1", id: "one", value: "1" },
+    //   { text: "2", id: "two", value: "2" },
+    //   { text: "3", id: "three", value: "3" },
+    //   { text: "4", id: "four", value: "4" },
+    //   { text: "5", id: "five", value: "5" },
+    //   { text: "6", id: "six", value: "6" },
+    //   { text: "7", id: "seven", value: "7" },
+    //   { text: "8", id: "eight", value: "8" },
+    //   { text: "9", id: "nine", value: "9" },
+    //   { text: "0", id: "zero", value: "0" },
+    //   { text: "-", id: "subtract", value: "-" },
+    //   { text: "+", id: "plus", value: "+" },
+    //   { text: "*", id: "multiply", value: "*" },
+    //   { text: "/", id: "divde", value: "/" },
+    //   { text: "=", id: "equals", value: "=" },
+    //   { text: "C", id: "clear", value: "clear" },
+    // ];
+
+    // const inputField = document.createElement('input');
+    // inputField.id = "inputField"
+    // document.body.appendChild(inputField);
+
+    // cal.forEach(function(but)){
+    //     const btn1 = document.createElement('but');
+
+    // }
+</script>
+
+</html>

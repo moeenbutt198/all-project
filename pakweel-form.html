@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="pakweel.css" />
+    <script src="pakweel.js"></script>
+    <title>Search Vehicles</title>
+    <script>
+      $(document).ready(function () {
+        $(".js-example-basic-single").select2();
+        $(".city-select2").select2();
+        $(".province-select2").select2();
+        $(".registered-in-select2").select2();
+        $(".certification-select2").select2();
+        $(".transmission-select2").select2();
+        $(".engine-type-select2").select2();
+        $(".color-select2").select2();
+        $(".assembly-select2").select2();
+        $(".model-category-select2").select2();
+        $(".seller-type-select2").select2();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="fs-2 text-center py-3">Search</div>
+      <!-- Button trigger modal -->
+      <a class="btn btn-primary" href="index.html"> Back </a>
+      <div class="row pt-5">
+        <div class="col-md-4 mb-3">
+          <label for="car_name" class="form-label">Car Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="car_name"
+            placeholder="e.g Honda City"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="exampleFormControlInput1" class="form-label pt-1"
+            >Make</label
+          ><br />
+          <select
+            class="js-example-basic-single select2-style"
+            id="make_data_list"
+            name="make"
+          >
+            <option selected hidden>Select Make</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="engine_cc" class="form-label">Engine Capacity (CC)</label>
+          <input
+            type="number"
+            class="form-control"
+            id="engine_cc"
+            placeholder="e.g 1500"
+            maxlength="4"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="model_year" class="form-label">Model Year</label>
+          <input
+            type="number"
+            class="form-control"
+            id="model_year"
+            placeholder="YYYY"
+            maxlength="4"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength)"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            placeholder="Price"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="year" class="form-label">Mileage (KM)</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mileage"
+            placeholder="Mileage"
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Registered In</label><br />
+          <select
+            class="registered-in-select2 select2-style"
+            id="registered_in_data_list"
+            name="city"
+            data-select2-id="registered_in-select2"
+          >
+            <option selected hidden>Select Registered City</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">City</label><br />
+          <select
+            class="city-select2 select2-style"
+            id="city_data_list"
+            name="city"
+            data-select2-id="city-select2"
+          >
+            <option selected hidden>Select City</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Province</label><br />
+          <select
+            class="province-select2 select2-style"
+            id="province_data_list"
+            name="province"
+            data-select2-id="province-select2"
+          >
+            <option selected hidden>Select Province</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Certification</label><br />
+          <select
+            class="certification-select2 select2-style"
+            id="certification_data_list"
+            name="certification"
+            data-select2-id="certification-select2"
+          >
+            <option selected hidden>Select Certification</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Transmission</label><br />
+          <select
+            class="transmission-select2 select2-style"
+            id="transmission_data_list"
+            name="transmission"
+            data-select2-id="transmission-select2"
+          >
+            <option selected hidden>Select Transmission</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Engine Type</label><br />
+          <select
+            class="engine-type-select2 select2-style"
+            id="engine_type_data_list"
+            name="engine_type"
+            data-select2-id="engine_type-select2"
+          >
+            <option selected hidden>Select Engine Type</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Color</label><br />
+          <select
+            class="color-select2 select2-style"
+            id="color_data_list"
+            name="color"
+            data-select2-id="color-select2"
+          >
+            <option selected hidden>Select Color</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Assembly</label><br />
+          <select
+            class="assembly-select2 select2-style"
+            id="assembly_data_list"
+            name="assembly"
+            data-select2-id="assembly-select2"
+          >
+            <option selected hidden>Select Assembly</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Model Category</label><br />
+          <select
+            class="model-category-select2 select2-style"
+            id="model_category_data_list"
+            name="model_category"
+            data-select2-id="model-category-select2"
+          >
+            <option selected hidden>Select Model Category</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label pt-1">Seller Type</label><br />
+          <select
+            class="seller-type-select2 select2-style"
+            id="seller_type_data_list"
+            name="seller_type"
+            data-select2-id="seller-type-select2"
+          >
+            <option selected hidden>Select Seller Type</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="formFile" class="form-label">Select Pictures</label>
+            <input class="form-control pictures" id="pictures" multiple="multiple" type="file" id="formFile" />
+          </div>
+        <div class="col-md-4 mb-3 pt-3">
+          <div class="form-check pt-4">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="is_featured"
+            />
+            <label class="form-check-label" for="is_featured">
+              Is Featured
+            </label>
+          </div>
+        </div>
+        <div class="col-md-12 py-3 text-center">
+            <button class="btn btn-primary px-5" onclick="add()">+ Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-5">
+        <div class="table-responsive">
+            <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Car Name</th>
+                <th scope="col">Make</th>
+                <th scope="col">Model Year</th>
+                <th scope="col">Engine Capacity</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="table_list">
+            </tbody>
+          </table>
+          </div>
+    </div>
+    <script>
+      window.onload = () => {
+        createSelectOptions();
+        showData();
+      };
+      let showData = () => {
+        let array = JSON.parse(localStorage.getItem('data'));
+        console.log(array);
+        let Elements = document.createDocumentFragment();
+        document.getElementById('table_list').innerHTML = '';
+        for(let item in array){
+            var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            var editBtn = document.createElement('button');
+            var deleteBtn = document.createElement('button');
+            tr.id = 'tr-'+item;
+            document.getElementById('table_list').appendChild(tr);
+            td1.textContent = array[item]['car_name'];
+            td2.textContent = array[item]['make'];
+            td3.textContent = array[item]['model_year'];
+            td4.textContent = array[item]['engine_capacity'];
+            td5.id = 'td-button-'+item;
+            editBtn.className = 'btn btn-info';
+            editBtn.setAttribute('onclick', 'editItem('+ item + ')');
+            editBtn.textContent = 'Edit';
+            deleteBtn.className = 'btn btn-danger ms-2';
+            deleteBtn.setAttribute('onclick', 'deleteItem('+ item + ')');
+            deleteBtn.textContent = 'Delete';
+            Elements.appendChild(td1);
+            Elements.appendChild(td2);
+            Elements.appendChild(td3);
+            Elements.appendChild(td4);
+            Elements.appendChild(td5);
+            document.getElementById('tr-'+item).appendChild(Elements);
+            document.getElementById('td-button-'+item).appendChild(editBtn);
+            document.getElementById('td-button-'+item).appendChild(deleteBtn);
+        }
+      }
+      let deleteItem = (id) => {
+        let arr = JSON.parse(localStorage.getItem('data'));
+        arr.splice(id,1);
+        localStorage.setItem('data', JSON.stringify(arr));
+        showData();
+      }
+      let editItem = (id) => {
+        let arr = JSON.parse(localStorage.getItem('data'));
+        let data = arr[id];
+        document.getElementById('car_name').value = data.car_name;
+        document.querySelector('.js-example-basic-single').value = data.make;
+        document.getElementById('engine_cc').value = data.engine_capacity;
+        document.getElementById('model_year').value = data.model_year;
+        document.getElementById('price').value = data.price;
+        document.getElementById('mileage').value = data.mileage;
+        document.querySelector('.registered-in-select2').value = data.registered_in;
+        document.querySelector('.city-select2').value = data.city;
+        document.querySelector('.province-select2').value = data.province;
+        document.querySelector('.certification-select2').value = data.certification;
+        document.querySelector('.transmission-select2').value = data.transmission;
+        document.querySelector('.engine-type-select2').value = data.engine_type;
+        document.querySelector('.color-select2').value = data.color;
+        document.querySelector('.assembly-select2').value = data.assembly;
+        document.querySelector('.model-category-select2').value = data.model_category;
+        document.querySelector('.seller-type-select2').value = data.seller_type;
+        document.querySelector('#is_featured').checked = data.is_featured;
+      }
+    </script>
+  </body>
+</html>

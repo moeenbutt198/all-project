@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/c6de75d4eb.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="calculater2.css">
+    <title>Calculator2</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-center mt-5">
+                <table class=" tb text-center">
+                   <tr>
+                       <td colspan="6" class="text-center"><p><b>CASIO <br>My First JavaScript Calculator</b></p></td>
+                    </tr>
+                    <tr>
+                        
+                        <td colspan="6">
+                            <h1 class="inp" id="result"></h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn" onclick="document.getElementById('result').innerHTML += Math.PI;">π</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_cos()">cos</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_operator('%')"><i class="fa-solid fa-percent"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_bs()"><i class="fa-solid fa-delete-left"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn ac" onclick="_clear()">AC</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn" onclick="_sin()">sin</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_tan()">tan</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">7</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">8</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">9</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn" onclick="_operator('^')">^</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_sqrtfun()">√</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">4</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">5</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">6</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn" onclick="_operator('/')"><i class="fa-solid fa-divide"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_operator('*')"><i class="fa-solid fa-xmark"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">1</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">2</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">3</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn" onclick="_operator('-')"><i class="fa-solid fa-minus"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">.</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_number(this.innerHTML)">0</button>
+                        </td>
+                        <td>
+                            <button class="btn" onclick="_operator('+')"><i class="fa-solid fa-plus"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn eq" onclick="_equal()"><i class="fa-solid fa-equals"></i></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var oper, v1, v2 ;
+    function _clear() {
+        document.getElementById('result').innerHTML = "";
+    console.log(result)
+}
+    function _number(x) {
+        var len = document.getElementById('result').innerHTML;
+        if(len.length < 21){
+            document.getElementById('result').innerHTML += x;
+
+        }
+        
+    }
+    function _bs() {
+        var len = document.getElementById('result').innerHTML;
+        len = len.toString();
+        var result = len.substring(0, len.length - 1);
+        result = parseInt(result);
+        document.getElementById('result').innerHTML = result;
+       
+    }
+    function _operator(op) {
+        v1 = document.getElementById('result').innerHTML;
+        oper = op;
+        document.getElementById('result').innerHTML = "";
+        
+    }
+    function _equal(){
+        v2 = document.getElementById('result').innerHTML;
+        switch (oper){
+            case '+':
+                document.getElementById('result').innerHTML = parseInt(v1) + parseInt(v2);
+                break;
+
+            case '-':
+                document.getElementById('result').innerHTML = parseInt(v1) - parseInt(v2) ;
+                break;
+            
+            case '*':
+                document.getElementById('result').innerHTML = parseInt(v1) * parseInt(v2) ;
+                break;
+    
+            case '/':
+                document.getElementById('result').innerHTML = parseInt(v1) / parseInt(v2);
+                break;
+            
+            case '%':
+                document.getElementById('result').innerHTML = ((parseInt(v1) / parseInt(v2)) * 100);
+                break;
+
+            case '^':
+                document.getElementById('result').innerHTML = Math.pow(v1, v2);
+                break;
+           
+
+    
+    
+
+              
+        }
+       
+    }
+    function _cos(){
+        var x = document.getElementById('result').innerHTML;
+        document.getElementById('result').innerHTML = Math.cos(x);
+
+    }
+    function _sin(){
+        var x = document.getElementById('result').innerHTML;
+        document.getElementById('result').innerHTML = Math.sin(x);
+
+    }
+    function _tan(){
+        var x = document.getElementById('result').innerHTML;
+        document.getElementById('result').innerHTML = Math.tan(x);
+
+    }
+    function _sqrtfun(){
+        var x = document.getElementById('result').innerHTML;
+        document.getElementById('result').innerHTML = Math.sqrt(x);
+    }
+        
+         
+        
+
+</script>
+</html>

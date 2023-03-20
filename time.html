@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://kit.fontawesome.com/c6de75d4eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 h1  text-center bg-warning">
+                CRUD TEST
+            </div>
+            
+            <div id="form" class="col-6 bg-secondary text-white pt-5">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>STUDENT NAME</span>
+                    </div>
+                    <input type="text" class="form-control" id="name" value="">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>STUDENT IMAGE</span>
+                    </div>
+                    <input type="file" src="" class="form-control" id="img" value="">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>ROLL NO.</span>
+                    </div>
+                    <input type="text" class="form-control" id="roll" value="">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>GRADE NO.</span>
+                    </div>
+                    <input type="text" class="form-control" id="grade" value="">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>CLASS</span>
+                    </div>
+                    <input type="text" class="form-control" id="class" value="">
+
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span>CITY</span>
+                    </div>
+                    <input type="text" class="form-control" id="city" value="">
+
+                </div>
+                <button type="button" class="btn btn-warning" onclick="save()">SAVE</button>
+            </div>
+            <div class="col-6 bg-primary">
+                <table class="table text-white">
+                    <thead>
+                        <th>NAME</th>
+                        <th>IMAGE</th>
+                        <th>ROLL NO</th>
+                        <th>GRADE</th>
+                        <th>CLASS</th>
+                        <th>CITY</th>
+                    </thead>
+                    <tbody id="student">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+   
+</body>
+<script>
+    let student = [];
+    let id = null;
+
+    function save(){
+    let obj = {name: eid("name").value,
+    image: eid("image").value,
+roll: eid("roll").value,
+grade: eid("grade").value,
+class: eid("class").value,
+city: eid("city").value} 
+if(id == null){
+    student.push(obj)
+}else{
+    student[id] = obj;
+}
+liststudent()
+};
+
+
+    function eid(id){
+        return document.getElementById(id)
+    }
+    function liststudent(){
+        let output = ""
+        for(index in student){
+            output+= "\
+                            <tr>\
+                                <td>" + student[index].name + "</td>\
+                                <td>" + student[index].image + "</td>\
+                                <td>" + student[index].roll + "</td>\
+                                <td>" + student[index].grade + "</td>\
+                                <td>" + student[index].class + "</td>\
+                                <td>" + student[index].city + "</td>\
+                                <td><button class='btn btn-primary' onclick='edit(" + index + ")'>Edit</button><button class='btn btn-danger' onclick='remove(" + index + ")'>Delete</button></td>\
+                            </tr>\
+            "
+        }
+        eid("student").innerHTML = output;
+    }
+    function eid(id) {
+                return document.getElementById(id);
+            }
+            liststudent()
+</script>
+</html>

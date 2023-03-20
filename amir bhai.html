@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>CRUD DEMO</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 bg-primary text-white h1 text-center">
+                    CRUD Demo
+                </div>
+                <div id="form" class="col-6 bg-success text-white pt-5">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Year</span>
+                        </div>
+                        <input type="text" class="form-control" id="year" value="">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Make</span>
+                        </div>
+                        <input type="text" class="form-control" id="make" value="">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Model</span>
+                        </div>
+                        <input type="text" class="form-control" id="model" value="">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Color</span>
+                        </div>
+                        <input type="text" class="form-control" id="color" value="">
+                    </div>
+                    <button class="btn btn-primary" onclick="save()">Save</button>
+                </div>
+                <div class="col-6 bg-secondary text-white">
+                    <table class="table text-white">
+                        <thead>
+                            <th>Year</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Color</th>
+                            <th>Actions</th>
+                        </thead>
+                        <tbody id="vehicles">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script>
+            let vehicles = [];
+            let id = null;
+
+            function save() {
+                let obj = {
+                year: eid("year").value, 
+                make: eid("make").value, 
+                model: eid("model").value, 
+                color: eid("color").value
+                }
+                if(id == null) {
+                    vehicles.push(obj)
+                } else {
+                    vehicles[id] = obj;
+                }
+                listVehicles()
+                clearForm()
+            }
+
+            function remove(i) {
+                vehicles.splice(i, 1);
+                listVehicles();
+                clearForm();
+            }
+
+            function edit(i) {
+                id = i;
+                eid("form").classList.remove("bg-success");
+                eid("form").classList.add("bg-warning");
+                eid("year").value = vehicles[i].year;
+                eid("make").value = vehicles[i].make;
+                eid("model").value = vehicles[i].model;
+                eid("color").value = vehicles[i].color;
+            }
+
+            function clearForm() {
+                id = null;
+                eid("form").classList.remove("bg-warning");
+                eid("form").classList.add("bg-success");
+                eid("year").value = "";
+                eid("make").value = "";
+                eid("model").value = "";
+                eid("color").value = "";
+            }
+
+            function listVehicles() {
+                let output = "";
+                for (index in vehicles) {
+                    output += "\
+                            <tr>\
+                                <td>" + vehicles[index].year + "</td>\
+                                <td>" + vehicles[index].make + "</td>\
+                                <td>" + vehicles[index].model + "</td>\
+                                <td>" + vehicles[index].color + "</td>\
+                                <td><button class='btn btn-primary' onclick='edit(" + index + ")'>Edit</button><button class='btn btn-danger' onclick='remove(" + index + ")'>Delete</button></td>\
+                            </tr>\
+                        "
+                }
+                eid("vehicles").innerHTML = output;
+            }
+            function eid(id) {
+                return document.getElementById(id);
+            }
+            listVehicles()
+                
+
+    
+        </script>
+    </body>
+</html>
