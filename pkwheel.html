@@ -1234,9 +1234,13 @@
       assembly: document.getElementById('assembly').value 
     }
 
+    
     let reader = new FileReader();
+    reader.onload = function() {
+      obj.images = reader.result;
+    };      
+    reader.readAsDataURL(obj.images); 
 
-      
 
     setTimeout(() => {
       if(id == null){
